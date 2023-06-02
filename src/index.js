@@ -5,7 +5,7 @@ const path=require("path")
 // use view engine EJS
 app.set("views",path.join(__dirname,"/views"))//=>config path folder views
 app.set("view engine","ejs") //=> config use EJS
-
+app.use(express.static("src/public"))
 
 //routes and use EJS render view
 app.get("/",(req,res)=>{
@@ -17,7 +17,8 @@ app.get("/",(req,res)=>{
 
 app.get("/contact",(req,res)=>{
     res.status(200).render("contact",{
-        "pageTitle":"contact"
+        "pageTitle":"contact",
+        "language":["js","java"]
     })
     console.log(__dirname)
 })
